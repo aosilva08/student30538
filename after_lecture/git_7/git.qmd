@@ -686,7 +686,11 @@ def add(x):
     return sum(x)
 ```
 
+<<<<<<< HEAD
+Finally `git commit` your resolved version
+=======
 Finally `git add add.py` and then `git commit` your resolved version
+>>>>>>> 7470ce91f0975991b906ac8f446e7778156e3222
 
 ## Resolving file-level conflicts I
 * For some file types, line-by-line adjustments will not be possible
@@ -754,6 +758,9 @@ $ git commit -m "C5: Merging main into iss1"
 * push
 
 
+<<<<<<< HEAD
+
+=======
 ## Remote: Github
 * Up to this point, everything we've been doing is local
 * But for collaboration, you will be working off a shared directory
@@ -765,6 +772,7 @@ $ git commit -m "C5: Merging main into iss1"
 ![](img/distributed_vc.png){fig-align="center" height=70%}
 
 
+>>>>>>> 7470ce91f0975991b906ac8f446e7778156e3222
 ## push
 
 ```{}
@@ -785,6 +793,15 @@ $ git fetch
     * *git merge origin* 
 
 
+
+
+## see all branches
+
+* list all branches, including branches in the remote repository which are not on your computer
+
+```{}
+$ git branch -a 
+```
 
 
 ## pull
@@ -840,6 +857,16 @@ When should I use each?
 * Use pull requests when you want someone else to review the change
 * Otherwise, just use `git merge`
 
+<<<<<<< HEAD
+## what happens if you push and there are also changes in the remote?
+
+```{}
+"Updates were rejected because the remote contains work that you do not have locally. This is usually caused by another repository pushing to the same ref. You may want to first merge the remote changes (e.g., hint: 'git pull') before pushing again."
+```
+
+
+=======
+>>>>>>> 7470ce91f0975991b906ac8f446e7778156e3222
 ## Summary
 
 * *push* sends changes from local to remote
