@@ -1,4 +1,4 @@
-from shiny import App, render, ui
+from shiny import App, render, ui, reactive
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -9,11 +9,22 @@ app_ui = ui.page_fluid(
 )
 
 def server(input, output, session):
+    @reactive.calc
+    def sample():
+        return(np.random.normal(input.mu(), 20, 200))
+    
     @render.plot
     def my_hist():
-        sample = np.random.normal(input.mu(), 20, 200)
+        
         fig, ax = plt.subplots()
-        ax.hist(sample, bins=30, color='blue', alpha=0.7)
+        ax.hist(sample(), bins=30, color='blue', alpha=0.7)
         return fig
+    
+    @render.text
+    def my_sumstats():
+        min = np.min(sample())
+        max = np.max(sample())
+        median = np.median(sample())
+        return "Min:" + str(min) + ", Median: " + str(median), ", Max: " + str(max)
 
 app = App(app_ui, server)
